@@ -1,0 +1,37 @@
+// 2D  Esp box
+void CEsp::DrawBox(CEsp::ESPBox size, Color color)
+{
+ //if (PlayerBoxes->GetStringIndex() == 1)
+ //{
+ // // Full Box
+ // renderMan->Outline(size.x, size.y, size.w, size.h, color);
+ // renderMan->Outline(size.x - 1, size.y - 1, size.w + 2, size.h + 2, COLORCODE(10, 10, 10, 150));
+ // renderMan->Outline(size.x + 1, size.y + 1, size.w - 2, size.h - 2, COLORCODE(10, 10, 10, 150));
+ //}
+ //else
+ //{
+  // Corner Box
+  int VertLine = (((float)size.w) * (0.40f));
+  int HorzLine = (((float)size.h) * (0.40f));
+
+  Render::Clear(size.x, size.y - 1, VertLine, 1, Color(10, 10, 10, 150));
+  Render::Clear(size.x + size.w - VertLine, size.y - 1, VertLine, 1, Color(10, 10, 10, 150));
+  Render::Clear(size.x, size.y + size.h - 1, VertLine, 1, Color(10, 10, 10, 150));
+  Render::Clear(size.x + size.w - VertLine, size.y + size.h - 1, VertLine, 1, Color(10, 10, 10, 150));
+  
+  Render::Clear(size.x - 1, size.y, 1, HorzLine, Color(10, 10, 10, 150));
+  Render::Clear(size.x - 1, size.y + size.h - HorzLine, 1, HorzLine, Color(10, 10, 10, 150));
+  Render::Clear(size.x + size.w - 1, size.y, 1, HorzLine, Color(10, 10, 10, 150));
+  Render::Clear(size.x + size.w - 1, size.y + size.h - HorzLine, 1, HorzLine, Color(10, 10, 10, 150));
+  
+  Render::Clear(size.x, size.y, VertLine, 1, color);
+  Render::Clear(size.x + size.w - VertLine, size.y, VertLine, 1, color);
+  Render::Clear(size.x, size.y + size.h, VertLine, 1, color);
+  Render::Clear(size.x + size.w - VertLine, size.y + size.h, VertLine, 1, color);
+  
+  Render::Clear(size.x, size.y, 1, HorzLine, color);
+  Render::Clear(size.x, size.y + size.h - HorzLine, 1, HorzLine, color);
+  Render::Clear(size.x + size.w, size.y, 1, HorzLine, color);
+  Render::Clear(size.x + size.w, size.y + size.h - HorzLine, 1, HorzLine, color);
+ //}
+}
